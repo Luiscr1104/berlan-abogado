@@ -1,0 +1,93 @@
+---
+const currentYear = new Date().getFullYear();
+---
+<footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+  <div class="container mx-auto px-6 md:px-12 lg:px-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Logo y descripción -->
+      <div>
+        <img
+          src="/images/logo.png"
+          alt="Berlan Paniagua - Abogado y Notario"
+          width="150"
+          height="60"
+          class="h-auto mb-6"
+        />
+        <p class="text-sm mb-6 text-gray-400">
+          Servicios legales y notariales de la más alta calidad. Experiencia y compromiso para resolver sus asuntos
+          legales con eficiencia y profesionalismo.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-gold/20 transition-colors">
+            <img src="/icons/facebook.svg" alt="Facebook" class="size-5" />
+          </a>
+          <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-gold/20 transition-colors">
+            <img src="/icons/twitter.svg" alt="Twitter" class="size-5" />
+          </a>
+          <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-gold/20 transition-colors">
+            <img src="/icons/instagram.svg" alt="Instagram" class="size-5" />
+          </a>
+          <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-gold/20 transition-colors">
+            <img src="/icons/linkedin.svg" alt="LinkedIn" class="size-5" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Enlaces rápidos -->
+      <div>
+        <h3 class="text-lg font-semibold mb-6 text-white">Enlaces rápidos</h3>
+        <ul class="space-y-3">
+          <li><a href="/#inicio" class="text-gray-400 hover:text-gold transition-colors">› Inicio</a></li>
+          <li><a href="/#servicios" class="text-gray-400 hover:text-gold transition-colors">› Servicios</a></li>
+          <li><a href="/#sobre-mi" class="text-gray-400 hover:text-gold transition-colors">› Sobre Mí</a></li>
+          <li><a href="/#testimonios" class="text-gray-400 hover:text-gold transition-colors">› Testimonios</a></li>
+          <li><a href="/#contacto" class="text-gray-400 hover:text-gold transition-colors">› Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Servicios -->
+      <div>
+        <h3 class="text-lg font-semibold mb-6 text-white">Servicios</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-gray-400 hover:text-gold transition-colors">› Derecho Civil</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-gold transition-colors">› Derecho Corporativo</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-gold transition-colors">› Derecho Inmobiliario</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-gold transition-colors">› Derecho Familiar</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-gold transition-colors">› Servicios Notariales</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div>
+        <h3 class="text-lg font-semibold mb-6 text-white">Contacto</h3>
+        <address class="not-italic space-y-3 text-gray-400">
+          <p class="flex items-start">
+            <img src="/icons/map-pin.svg" alt="Ubicación" class="h-5 w-5 text-gold mr-3 flex-shrink-0" />
+            Av. Principal #123, Edificio Corporativo, Piso 5, La Fortuna, Costa Rica.
+          </p>
+          <p class="flex items-center">
+            <img src="/icons/phone.svg" alt="Teléfono" class="h-5 w-5 text-gold mr-3 flex-shrink-0" />
+            +506 8657 2662
+          </p>
+          <p class="flex items-center">
+            <img src="/icons/mail.svg" alt="Correo electrónico" class="h-5 w-5 text-gold mr-3 flex-shrink-0" />
+            contacto@berlanpaniagua.com
+          </p>
+        </address>
+      </div>
+    </div>
+
+    <!-- Copyright y enlaces legales -->
+    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm text-gray-500">
+        &copy; {currentYear} Berlan Paniagua - Abogado y Notario. Todos los derechos reservados.
+      </p>
+      <div class="mt-4 md:mt-0">
+        <ul class="flex space-x-6 text-sm text-gray-500">
+          <li><a href="#" class="hover:text-gold transition-colors">Términos y Condiciones</a></li>
+          <li><a href="#" class="hover:text-gold transition-colors">Política de Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

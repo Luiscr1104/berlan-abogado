@@ -1,0 +1,108 @@
+<header
+  class="fixed top-0 z-50 w-full transition-all duration-300 bg-transparent"
+  id="navbar"
+>
+  <div class="container flex h-20 items-center justify-between">
+    <a href="/" class="flex items-center gap-2 z-10">
+      <img
+        src="images/LOGO-BERLAN.png"
+        alt="Berlan Paniagua - Abogado y Notario"
+        width="120"
+        height="50"
+        class="h-auto"
+      />
+    </a>
+
+    <nav class="hidden md:flex gap-8 text-sm font-medium">
+      <a href="/#inicio" class="relative group">
+        <span class="transition-colors duration-300 text-white">Inicio</span>
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="/#servicios" class="relative group">
+        <span class="transition-colors duration-300 text-white">Servicios</span>
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="/#sobre-mi" class="relative group">
+        <span class="transition-colors duration-300 text-white">Sobre Mí</span>
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="/#testimonios" class="relative group">
+        <span class="transition-colors duration-300 text-white">Testimonios</span>
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="/#contacto" class="relative group">
+        <span class="transition-colors duration-300 text-white">Contacto</span>
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </nav>
+
+    <button class="hidden md:flex border border-gold text-gold bg-transparent hover:bg-gold hover:text-white transition-all duration-300 px-4 py-2 rounded-md">
+        Agendar Consulta
+      </button>       
+
+    <button
+      class="md:hidden z-10 p-2 rounded-full text-white"
+      id="menu-toggle"
+      aria-label="Toggle menu"
+    >
+      ☰
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-black/95 z-0 flex items-center justify-center transition-opacity duration-300 opacity-0 invisible"
+  >
+    <nav class="flex flex-col items-center space-y-8 text-white text-2xl font-light">
+      <a href="/#inicio" class="hover:text-gold transition-colors duration-300">Inicio</a>
+      <a href="/#servicios" class="hover:text-gold transition-colors duration-300">Servicios</a>
+      <a href="/#sobre-mi" class="hover:text-gold transition-colors duration-300">Sobre Mí</a>
+      <a href="/#testimonios" class="hover:text-gold transition-colors duration-300">Testimonios</a>
+      <a href="/#contacto" class="hover:text-gold transition-colors duration-300">Contacto</a>
+      <button class="mt-6 border-gold text-gold hover:bg-gold hover:text-white transition-all duration-300 px-4 py-2 border rounded-md bg-transparent">
+        Agendar Consulta
+      </button>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navbar = document.getElementById("navbar");
+    const navLinks = document.querySelectorAll("nav span");
+
+    let isMenuOpen = false;
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener("click", function () {
+        isMenuOpen = !isMenuOpen;
+        mobileMenu.classList.toggle("opacity-100");
+        mobileMenu.classList.toggle("visible");
+        mobileMenu.classList.toggle("opacity-0");
+        mobileMenu.classList.toggle("invisible");
+      });
+    }
+
+    window.addEventListener("scroll", function () {
+      if (navbar) {
+        if (window.scrollY > 10) {
+          navbar.classList.add("bg-white/95", "backdrop-blur-md", "shadow-sm");
+          navbar.classList.remove("bg-transparent");
+          navLinks.forEach(link => {
+            link.classList.remove("text-white");
+            link.classList.add("text-gray-800");
+        });
+        } else {
+          navbar.classList.remove("bg-white/95", "backdrop-blur-md", "shadow-sm");
+          navbar.classList.add("bg-transparent");
+          navLinks.forEach(link => {
+            link.classList.remove("text-gray-800");
+            link.classList.add("text-white");
+          });
+        }
+      }
+    });
+  });
+</script>

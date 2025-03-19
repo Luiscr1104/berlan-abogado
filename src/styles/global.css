@@ -1,0 +1,13 @@
+@import "tailwindcss";
+:root {
+  --gold: #c6a455;
+  --gold-light: #d9bc76;
+  --gold-dark: #a88a3f;
+}
+
+/* Tailwind 4 - Agregar colores personalizados */
+@theme {
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+}
