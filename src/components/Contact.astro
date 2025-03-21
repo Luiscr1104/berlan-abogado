@@ -1,3 +1,4 @@
+
 <section id="contact" class="py-24 md:py-32 bg-white">
     <div class="container px-6 md:px-12">
       <div class="text-center max-w-3xl mx-auto mb-16">
@@ -10,11 +11,10 @@
           we’re ready to help. <span class="font-medium text-gray-800">Contact us today</span> to discuss your case.
         </p>
       </div>
-  
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
         <div class="lg:col-span-3 bg-white p-10 rounded-2xl shadow-xl border border-gray-200">
           <h3 class="text-2xl font-semibold mb-6">Send Us a Message</h3>
-          <form class="space-y-6">
+          <form id="contactForm" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
@@ -81,6 +81,75 @@
               Send Message
             </button>
           </form>
+          <script>
+            // Define la función handleSubmit primero
+            async function handleSubmit(event: SubmitEvent) {
+              event.preventDefault();
+          
+              const form = document.getElementById('contactForm') as HTMLFormElement;
+              const nameInput = document.getElementById('name') as HTMLInputElement;
+              const emailInput = document.getElementById('email') as HTMLInputElement;
+              const phoneInput = document.getElementById('phone') as HTMLInputElement;
+              const subjectInput = document.getElementById('subject') as HTMLInputElement;
+              const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+          
+              if (!form || !nameInput || !emailInput || !subjectInput || !messageInput) {
+                alert('Form elements missing!');
+                return;
+              }
+          
+              const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+          
+              if (!submitButton) {
+                alert('Submit button missing!');
+                return;
+              }
+          
+              const originalText = submitButton.innerText;
+              submitButton.innerText = "Sending...";
+              submitButton.disabled = true;
+          
+              const formData = {
+                email: emailInput.value,
+                name: nameInput.value,
+                phone: phoneInput.value,
+                subject: subjectInput.value,
+                message: messageInput.value
+              };
+          
+              try {
+                const response = await fetch('/api/sendEmail', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(formData),
+                });
+          
+                const result = await response.json();
+          
+                if (response.ok) {
+                  form.reset();
+                  alert('Thank you for your message. We will contact you soon!');
+                } else {
+                  alert(`Error: ${result.error || 'Failed to send message'}`);
+                }
+              } catch (error) {
+                console.error('Error sending form:', error);
+                alert('There was a problem sending your message.');
+              } finally {
+                submitButton.innerText = originalText;
+                submitButton.disabled = false;
+              }
+            }
+          
+            // Agrega el evento después de definir la función, siempre verificando si el formulario existe
+            const formElement = document.getElementById('contactForm');
+            if (formElement) {
+              formElement.addEventListener('submit', handleSubmit);
+            } else {
+              console.error("Form 'contactForm' not found");
+            }
+          </script>
+          
         </div>
   
         <div class="lg:col-span-2 bg-gray-900 text-white p-10 rounded-2xl shadow-xl">
@@ -134,4 +203,3 @@
       </div>
     </div>
   </section>
-  
