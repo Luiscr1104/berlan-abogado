@@ -23,10 +23,10 @@ const currentYear = new Date().getFullYear();
           class="h-auto mb-8 brightness-0 invert opacity-90"
         />
         <p class="text-gray-400 font-light leading-relaxed mb-8 max-w-xs">
-          Excelencia legal y notarial comprometida con la <span
-            class="text-gold font-medium">eficiencia</span
-          > y el
-          <span class="text-gold font-medium">profesionalismo</span> en cada caso.
+          Legal and notarial excellence committed to <span
+            class="text-gold font-medium">efficiency</span
+          > and
+          <span class="text-gold font-medium">professionalism</span> in every case.
         </p>
         <div class="flex gap-4">
           {
@@ -48,15 +48,15 @@ const currentYear = new Date().getFullYear();
       <!-- Quick Links -->
       <div>
         <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-8">
-          Navegación
+          Navigation
         </h4>
         <ul class="space-y-4">
           {
-            ["Inicio", "Servicios", "Sobre Mí", "Testimonios", "Contacto"].map(
+            ["Home", "Services", "About", "Testimonials", "Contact"].map(
               (link) => (
                 <li>
                   <a
-                    href={`/#${link === "Sobre Mí" ? "about" : link.toLowerCase()}`}
+                    href={`/#${link === "About" ? "about" : link.toLowerCase()}`}
                     class="text-gray-400 hover:text-gold transition-colors text-sm font-light"
                   >
                     {link}
@@ -71,16 +71,16 @@ const currentYear = new Date().getFullYear();
       <!-- Practice Areas -->
       <div>
         <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-8">
-          Áreas de Práctica
+          Practice Areas
         </h4>
         <ul class="space-y-4">
           {
             [
-              "Derecho Civil",
-              "Derecho Corporativo",
-              "Bienes Raíces",
-              "Derecho Laboral",
-              "Servicios Notariales",
+              "Civil Law",
+              "Corporate Law",
+              "Real Estate",
+              "Labor Law",
+              "Notarial Services",
             ].map((area) => (
               <li>
                 <span class="text-gray-400 text-sm font-light">{area}</span>
@@ -93,7 +93,7 @@ const currentYear = new Date().getFullYear();
       <!-- Contact Info -->
       <div>
         <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-8">
-          Contacto
+          Contact
         </h4>
         <ul class="space-y-6">
           <li class="flex gap-4">
@@ -158,10 +158,10 @@ const currentYear = new Date().getFullYear();
     >
       <div class="flex flex-col items-center md:items-start gap-2">
         <p class="text-gray-500 text-[10px] uppercase tracking-widest">
-          &copy; {currentYear} Berlan Paniagua. Todos los derechos reservados.
+          &copy; {currentYear} Berlan Paniagua. All rights reserved.
         </p>
         <p class="text-gray-600 text-[9px] uppercase tracking-[0.2em]">
-          Diseño por <a
+          Design by <a
             href="https://luisroberto.dev"
             target="_blank"
             class="text-gold/60 hover:text-gold transition-colors"
@@ -173,12 +173,12 @@ const currentYear = new Date().getFullYear();
         <a
           href="#"
           class="text-gray-500 hover:text-white transition-colors text-[10px] uppercase tracking-widest"
-          >Términos</a
+          >Terms</a
         >
         <a
           href="#"
           class="text-gray-500 hover:text-white transition-colors text-[10px] uppercase tracking-widest"
-          >Privacidad</a
+          >Privacy</a
         >
       </div>
     </div>

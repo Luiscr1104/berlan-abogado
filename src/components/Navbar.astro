@@ -19,19 +19,17 @@
       class="hidden md:flex gap-10 text-sm font-medium tracking-wide first-letter:uppercase"
     >
       {
-        ["inicio", "servicios", "sobre mí", "testimonios", "contacto"].map(
-          (item) => (
-            <a
-              href={`/#${item === "sobre mí" ? "about" : item === "inicio" ? "home" : item === "testimonios" ? "testimonials" : item}`}
-              class="relative group py-2"
-            >
-              <span class="transition-colors duration-300 text-white/80 group-hover:text-gold uppercase text-[11px] tracking-[0.2em]">
-                {item}
-              </span>
-              <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full" />
-            </a>
-          ),
-        )
+        ["home", "services", "about", "testimonials", "contact"].map((item) => (
+          <a
+            href={`/#${item === "home" ? "home" : item}`}
+            class="relative group py-2"
+          >
+            <span class="transition-colors duration-300 text-white/80 group-hover:text-gold uppercase text-[11px] tracking-[0.2em]">
+              {item}
+            </span>
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full" />
+          </a>
+        ))
       }
     </nav>
 
@@ -40,7 +38,7 @@
         href="#contact"
         class="border border-gold/50 text-gold hover:bg-gold hover:text-navy transition-all duration-300 px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest"
       >
-        Consulta Gratis
+        Free Consultation
       </a>
     </div>
 
@@ -73,22 +71,20 @@
   >
     <nav class="flex flex-col items-center space-y-8">
       {
-        ["inicio", "servicios", "sobre mí", "testimonios", "contacto"].map(
-          (item) => (
-            <a
-              href={`/#${item === "sobre mí" ? "about" : item === "inicio" ? "home" : item === "testimonios" ? "testimonials" : item}`}
-              class="text-2xl font-serif text-white/90 hover:text-gold transition-colors mobile-link uppercase tracking-widest"
-            >
-              {item}
-            </a>
-          ),
-        )
+        ["home", "services", "about", "testimonials", "contact"].map((item) => (
+          <a
+            href={`/#${item === "home" ? "home" : item}`}
+            class="text-2xl font-serif text-white/90 hover:text-gold transition-colors mobile-link uppercase tracking-widest"
+          >
+            {item}
+          </a>
+        ))
       }
       <a
         href="#contact"
         class="mt-8 border border-gold text-gold px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest mobile-link"
       >
-        Consulta Gratis
+        Free Consultation
       </a>
     </nav>
   </div>
@@ -107,6 +103,7 @@
   let isMenuOpen = false;
 
   function toggleMenu() {
+    if (!mobileMenu || !line1 || !line2 || !line3) return;
     isMenuOpen = !isMenuOpen;
     mobileMenu.classList.toggle("translate-x-full");
     mobileMenu.classList.toggle("translate-x-0");
