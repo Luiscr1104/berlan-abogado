@@ -1,188 +1,223 @@
 ---
-// testimonials.astro
+// testimonios.astro
 const testimonials = [
   {
     name: "Carlos Rodríguez",
-    role: "Entrepreneur",
-    text:
-      "Lic. Paniagua assisted me in setting up my company. His professionalism and expertise made the process quick and seamless.",
+    role: "Emprendedor",
+    text: "El Lic. Paniagua me asesoró en la constitución de mi empresa. Su profesionalismo y conocimiento hicieron que el proceso fuera rápido y sin complicaciones.",
     stars: 5,
     image: "images/avatar1.png",
   },
   {
     name: "María González",
-    role: "Private Client",
-    text:
-      "Excellent service during my divorce process. I felt supported and well-advised throughout. I highly recommend his services.",
+    role: "Cliente Particular",
+    text: "Excelente atención durante mi proceso legal. Me sentí respaldada y bien asesorada en todo momento. Recomiendo ampliamente sus servicios.",
     stars: 5,
     image: "images/avatar2.png",
   },
   {
     name: "Juan Pérez",
-    role: "Real Estate Manager",
-    text:
-      "We have worked with Lic. Paniagua on multiple real estate transactions. His precision and efficiency are unmatched. A top-tier professional.",
+    role: "Gestor Inmobiliario",
+    text: "Hemos trabajado con el Lic. Paniagua en múltiples transacciones de bienes raíces. Su precisión y eficiencia son incomparables. Un profesional de primer nivel.",
     stars: 5,
     image: "images/avatar3.png",
   },
   {
     name: "Laura Sánchez",
-    role: "Financial Director",
-    text:
-      "The legal advice we received for our company was exceptional. Lic. Paniagua has in-depth, up-to-date legal knowledge.",
+    role: "Directora Financiera",
+    text: "La asesoría legal que recibimos para nuestra empresa fue excepcional. El Lic. Paniagua tiene un conocimiento legal profundo y actualizado.",
     stars: 5,
     image: "images/avatar2.png",
   },
 ];
-
 ---
 
-<section id="testimonials" class="py-24 md:py-32 bg-black text-white">
-  <div class="container">
+<section
+  id="testimonials"
+  class="py-24 md:py-32 bg-navy relative overflow-hidden"
+>
+  <!-- Decorative Elements -->
+  <div
+    class="absolute top-0 right-0 w-1/3 h-1/3 bg-gold/5 blur-[120px] rounded-full"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gold/5 blur-[100px] rounded-full"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-gold text-sm font-medium uppercase tracking-wider">Testimonials</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">What Our Clients Say</h2>
-        <p class="text-gray-400">
-          Our clients' satisfaction is our best introduction. Discover the experiences of those who have trusted our services.
-        </p>
-      </div>      
-    <div class="testimonials-carousel max-w-4xl mx-auto opacity-0 translate-y-10 transform transition-all duration-700">
-      <div class="relative bg-gray-900 rounded-2xl p-8 md:p-12">
-        <div class="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2">
-          <div class="text-6xl text-gold opacity-20">"</div>
+      <span
+        class="inline-block px-3 py-1 mb-6 text-[10px] font-bold tracking-[0.3em] text-gold uppercase border border-gold/30 rounded-full"
+      >
+        Testimonios
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Confianza de <span class="text-gold italic font-serif"
+          >Nuestros Clientes</span
+        >
+      </h2>
+      <p class="text-gray-400 text-lg">
+        La satisfacción de quienes confían en nosotros es nuestra mejor carta de
+        presentación.
+      </p>
+    </div>
+
+    <div class="testimonials-container max-w-5xl mx-auto">
+      <div class="relative overflow-hidden">
+        <div
+          id="testimonial-track"
+          class="flex transition-transform duration-700 ease-in-out"
+        >
+          {
+            testimonials.map((testimonio) => (
+              <div class="w-full shrink-0 px-4">
+                <div class="bg-navy-light/50 backdrop-blur-sm border border-white/5 p-8 md:p-12 rounded-3xl relative">
+                  <div class="absolute top-8 right-8 text-gold/20">
+                    <svg class="w-20 h-20 fill-current" viewBox="0 0 24 24">
+                      <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12M14.017 21H6.01704V13C6.01704 10.2386 8.25562 8 11.017 8V11C11.017 12.1046 10.1216 13 9.01704 13H6.01704V21H14.017Z" />
+                    </svg>
+                  </div>
+
+                  <div class="flex flex-col md:flex-row gap-8 items-center md:items-start relative z-10">
+                    <div class="w-24 h-24 rounded-2xl overflow-hidden ring-2 ring-gold/20 shrink-0">
+                      <img
+                        src={testimonio.image}
+                        alt={testimonio.name}
+                        class="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    <div class="flex-1 text-center md:text-left">
+                      <div class="flex justify-center md:justify-start gap-1 mb-4">
+                        {Array(testimonio.stars)
+                          .fill(null)
+                          .map(() => (
+                            <svg
+                              class="w-5 h-5 text-gold fill-current"
+                              viewBox="0 0 20 20"
+                            >
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                          ))}
+                      </div>
+
+                      <p class="text-xl md:text-2xl text-white font-light italic mb-8 leading-relaxed">
+                        "{testimonio.text}"
+                      </p>
+
+                      <div>
+                        <h4 class="text-lg font-bold text-white">
+                          {testimonio.name}
+                        </h4>
+                        <p class="text-gold text-sm tracking-widest uppercase mt-1">
+                          {testimonio.role}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex justify-center items-center gap-8 mt-12">
+        <button
+          id="prevBtn"
+          class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-navy hover:border-gold transition-all duration-300"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <div class="flex gap-2" id="dots-container">
+          {
+            testimonials.map((_, i) => (
+              <button
+                class={`w-2 h-2 rounded-full transition-all duration-300 dot ${i === 0 ? "bg-gold w-6" : "bg-white/20"}`}
+                data-index={i}
+              />
+            ))
+          }
         </div>
 
-        {testimonials.map((testimonio, index: number) => (
-          <div class={`flex flex-col md:flex-row gap-8 items-center testimonio-item ${index === 0 ? 'active' : 'hidden'}`} data-index={index}>
-            <div class="w-full md:w-1/3 flex flex-col items-center md:items-start">
-              <div class="w-20 h-20 rounded-full overflow-hidden mb-4">
-                <img
-                  src={testimonio.image || "/placeholder.svg"}
-                  alt={testimonio.name}
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <h3 class="text-xl font-semibold">{testimonio.name}</h3>
-              <p class="text-gold text-sm">{testimonio.role}</p>
-              <div class="flex mt-2">
-                {Array(testimonio.stars).fill(null).map((_, i) => (
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-gold text-gold" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-            </svg>
-            ))}
-              </div>
-            </div>
-
-            <div class="w-full md:w-2/3">
-              <p class="text-gray-300 text-lg italic leading-relaxed">"{testimonio.text}"</p>
-            </div>
-          </div>
-        ))}
-
-        <div class="flex justify-center mt-8 gap-4">
-          <button
-            id="prevTestimonio"
-            class="p-2 rounded-full bg-gray-800 hover:bg-gold/20 transition-colors"
-            aria-label="Testimonio anterior"
+        <button
+          id="nextBtn"
+          class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-navy hover:border-gold transition-all duration-300"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <button
-            id="nextTestimonio"
-            class="p-2 rounded-full bg-gray-800 hover:bg-gold/20 transition-colors"
-            aria-label="Siguiente testimonio"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
-        </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  // Intersection Observer for animation on scroll
-  const testimonialsCarousel = document.querySelector('.testimonials-carousel');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove('opacity-0', 'translate-y-10');
-        entry.target.classList.add('opacity-100', 'translate-y-0');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  
-  if (testimonialsCarousel) {
-    observer.observe(testimonialsCarousel);
-  }
+  let currentIdx = 0;
+  const track = document.getElementById("testimonial-track");
+  const dots = document.querySelectorAll(".dot");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const total = dots.length;
 
-  // Carousel functionality
-  let currentIndex = 0;
-  const testimonioItems = document.querySelectorAll('.testimonio-item');
-  const prevButton = document.getElementById('prevTestimonio');
-  const nextButton = document.getElementById('nextTestimonio');
-  
-  function showTestimonio(index: number) {
-    testimonioItems.forEach((item, i) => {
-      if (i === index) {
-        item.classList.remove('hidden');
-        item.classList.add('active');
+  function updateCarousel(idx: number) {
+    if (!track) return;
+    currentIdx = idx;
+    track.style.transform = `translateX(-${currentIdx * 100}%)`;
+
+    dots.forEach((dot, i) => {
+      if (i === currentIdx) {
+        dot.classList.add("bg-gold", "w-6");
+        dot.classList.remove("bg-white/20");
       } else {
-        item.classList.add('hidden');
-        item.classList.remove('active');
+        dot.classList.remove("bg-gold", "w-6");
+        dot.classList.add("bg-white/20");
       }
     });
   }
-  
-  function nextTestimonio() {
-    currentIndex = currentIndex === testimonioItems.length - 1 ? 0 : currentIndex + 1;
-    showTestimonio(currentIndex);
-  }
-  
-  function prevTestimonio() {
-    currentIndex = currentIndex === 0 ? testimonioItems.length - 1 : currentIndex - 1;
-    showTestimonio(currentIndex);
-  }
-  
-  prevButton?.addEventListener('click', prevTestimonio);
-  nextButton?.addEventListener('click', nextTestimonio);
-</script>
 
-<style>
-  .text-gold {
-    color: #d4af37;
-  }
-  
-  .fill-gold {
-    fill: #d4af37;
-  }
-  
-  .container {
-    width: 100%;
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  /* Add transition for carousel items */
-  .testimonio-item {
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .testimonio-item.active {
-    opacity: 1;
-  }
-  
-  .testimonio-item.hidden {
-    display: none;
-    opacity: 0;
-  }
-</style>
+  nextBtn?.addEventListener("click", () => {
+    updateCarousel((currentIdx + 1) % total);
+  });
+
+  prevBtn?.addEventListener("click", () => {
+    updateCarousel((currentIdx - 1 + total) % total);
+  });
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const idx = parseInt(dot.getAttribute("data-index") || "0");
+      updateCarousel(idx);
+    });
+  });
+
+  // Auto play
+  setInterval(() => {
+    updateCarousel((currentIdx + 1) % total);
+  }, 5000);
+</script>
