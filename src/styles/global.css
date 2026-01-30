@@ -15,7 +15,7 @@
   --color-gold-dark: var(--gold-dark);
   --color-navy: var(--navy);
   --color-navy-light: var(--navy-light);
-  
+
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
 }
@@ -27,7 +27,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, .font-serif {
+h1,
+h2,
+h3,
+h4,
+.font-serif {
   font-family: var(--font-serif);
 }
 
